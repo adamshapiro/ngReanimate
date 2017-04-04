@@ -1,6 +1,6 @@
 <header class="site__header island">
   <div class="wrap">
-   <span id="animationSandbox" ng-class="[vm.animMove, vm.animLength]" style="display: block;"><h1 class="site__title mega"><span class="re-hue">Re</span>Animate<span class="re-hue">.css</span></h1></span>
+   <span id="animationSandbox" ng-class="vm.showAnimation" style="display: block;"><h1 class="site__title mega"><span class="re-hue">Re</span>Animate<span class="re-hue">.css</span></h1></span>
     <span class="beta subhead">For your consideration: </span><br/> <br/>
     <span class="beta subhead">The missing "small" type for Animate.css</span>
     <br/><br/>
@@ -12,7 +12,7 @@
 <main class="site__content island" role="content">
   <div class="wrap">
     <p>
-      <select class="input input--dropdown" ng-model="vm.movement" ng-change="vm.toggleAnimation()">
+      <select class="input input--dropdown" ng-model="vm.animation" ng-change="vm.toggleAnimation()">
 
         <optgroup label="Bouncing Entrances">
           <option value="bounceInSmall">bounceInSmall</option>
@@ -68,8 +68,60 @@
 
       </select>
 
-      <select class="input input--dropdown" ng-model="vm.timer" ng-change="vm.toggleAnimation()">
+      <select class="input input--dropdown" ng-model="vm.duration" ng-change="vm.toggleAnimation()">
         <option ng-repeat="time in vm.times" value="{{time.id}}">{{time.name}}</option>
+      </select></br>
+
+      <select class="input input--dropdown" ng-model="vm.bezier" ng-change="vm.toggleAnimation()">
+
+        <optgroup label="Cubic">
+          <option value="easeInCubic">easeInCubic</option>
+          <option value="easeOutCubic">easeOutCubic</option>
+          <option value="easeInOutCubic">easeInOutCubic</option>
+        </optgroup>
+
+        <optgroup label="Circ">
+          <option value="easeInCirc">easeInCirc</option>
+          <option value="easeOutCirc">easeOutCirc</option>
+          <option value="easeInOutCirc">easeInOutCirc</option>
+        </optgroup>
+
+        <optgroup label="Expo">
+          <option value="easeInExpo">easeInExpo</option>
+          <option value="easeOutExpo">easeOutExpo</option>
+          <option value="easeInOutExpo">easeInOutExpo</option>
+        </optgroup>
+
+        <optgroup label="Quad">
+          <option value="easeInQuad">easeInQuad</option>
+          <option value="easeOutQuad">easeOutQuad</option>
+          <option value="easeInOutQuad">easeInOutQuad</option>
+        </optgroup>
+
+        <optgroup label="Quart">
+          <option value="easeInQuart">easeInQuart</option>
+          <option value="easeOutQuart">easeOutQuart</option>
+          <option value="easeInOutQuart">easeInOutQuart</option>
+        </optgroup>
+
+        <optgroup label="Quint">
+          <option value="easeInQuint">easeInQuint</option>
+          <option value="easeOutQuint">easeOutQuint</option>
+          <option value="easeInOutQuint">easeInOutQuint</option>
+        </optgroup>
+
+        <optgroup label="Sine">
+          <option value="easeInSine">easeInSine</option>
+          <option value="easeOutSine">easeOutSine</option>
+          <option value="easeInOutSine">easeInOutSine</option>
+        </optgroup>
+
+        <optgroup label="Back">
+          <option value="easeInBack">easeInBack</option>
+          <option value="easeOutBack">easeOutBack</option>
+          <option value="easeInOutBack">easeInOutBack</option>
+        </optgroup>
+
       </select>
 
       <button class="butt" ng-click="vm.toggleAnimation()">Animate it</button>

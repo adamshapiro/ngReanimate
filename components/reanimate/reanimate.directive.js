@@ -22,10 +22,10 @@
     function ReanimateController($timeout) {
       var _self = this;
       _self.animating = false;
-      _self.animLength = "";
-      _self.animMove = "";
-      _self.movement = "bounceInSmall";
-      _self.timer = "1000";
+      _self.bezier = "easeInCubic";
+      _self.animation = "bounceInSmall";
+      _self.duration = "1000";
+      _self.showAnimation = "";
       _self.toggleAnimation = toggleAnimation;
 
       _self.times = [
@@ -55,8 +55,6 @@
       //////////////
 
       function activate() {
-
-        console.log(_self.timer);
         return toggleAnimation();
       }
 
@@ -65,15 +63,13 @@
           return;
 
         _self.animating = true;
-        _self.animLength = "animated-" + _self.timer;
-        _self.animMove = _self.movement;
+        _self.showAnimation = _self.animation + " animated-" + _self.duration + " " + _self.bezier;
 
         $timeout(function() {
-          _self.animLength = "";
-          _self.animMove = "";
+          _self.showAnimation = "";
 
           _self.animating = false;
-        }, _self.timer);
+        }, _self.duration);
       }
     }
 
